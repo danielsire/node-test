@@ -11,7 +11,6 @@ const msg = `Test API - Running on port ${httpPort}`
 const server = http.Server(app)
 http.globalAgent.maxSockets = Infinity
 
-
 server.listen(httpPort, () => {
     logger.info(msg)
 });
