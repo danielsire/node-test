@@ -1,7 +1,6 @@
 'use strict'
 
 import express from 'express'
-import BPromise from 'bluebird'
 import User from './model'
 import logger from 'app/lib/logger'
 
@@ -31,7 +30,6 @@ get('/:login', async function(req, res) {
 post('/', async function(req, res) {
 
     const user = req.body
-    console.log('user----', user)
 
     try {
         await User.saveSlide(user)

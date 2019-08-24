@@ -8,9 +8,15 @@
         "build:symlink": "ln -sf ../dist ./node_modules && mv -Tf ./node_modules/dist ./node_modules/app",
         "start": "npm run symlink && . ./.env && nodemon app/boot.js --exec babel-node",
         "lint": "eslint .",
-        "test": "echo test",
+        "pretest": "npm run symlink && npm run lint",
+        "test": ". ./.env-test && nyc --require babel-core/register mocha --recursive",
+        "posttest": "nyc report --reporter=html && nyc check-coverage --lines 10 --functions 10 --branches 10",
         "build": "babel app -d dist && npm run build:symlink",
         "postinstall": "npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:danielsire/node-test.git"
     },
     "author": "Daniel Sire",
     "license": "ISC",
@@ -30,8 +36,19 @@
         "bunyan-format": "0.2.1",
         "compression": "1.7.4",
         "cors": "2.8.5",
+        "eslint": "6.2.2",
         "express": "4.17.1",
+        "lodash": "^4.17.15",
         "mongoose": "5.6.10",
-        "morgan": "1.9.1"
+        "morgan": "1.9.1",
+        "nyc": "14.1.1"
+    },
+    "devDependencies": {
+        "chai": "4.2.0",
+        "mocha": "6.2.0",
+        "nodemon": "1.19.1",
+        "sinon": "7.4.1",
+        "sinon-chai": "3.3.0",
+        "supertest": "4.0.2"
     }
 }
