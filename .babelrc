@@ -1,0 +1,13 @@
+{
+  "presets": [ "es2015", "stage-3" ],
+  "plugins": [
+    "transform-runtime",
+    "syntax-async-functions",
+    "transform-async-to-generator"
+  ],
+  "sourceMaps": false,
+  "ignore": [
+    "build",
+    "node_modules"
+  ]
+}

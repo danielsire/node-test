@@ -1,0 +1,5 @@
+# node_modules ignored by default
+dist/
+coverage/
+db-scripts/
+newrelic.js
