@@ -1,7 +1,7 @@
 {
     "name": "node-test",
     "version": "1.0.0",
-    "description": "Testing node, expresse and mongo",
+    "description": "Testing node, express and mongo",
     "main": "index.js",
     "scripts": {
         "symlink": "ln -sf ../app ./node_modules",
@@ -10,7 +10,7 @@
         "lint": "eslint .",
         "pretest": "npm run symlink && npm run lint",
         "test": ". ./.env-test && nyc --require babel-core/register mocha --recursive",
-        "posttest": "nyc report --reporter=html && nyc check-coverage --lines 10 --functions 10 --branches 10",
+        "posttest": "nyc report --reporter=html && nyc check-coverage --lines 50 --functions 50 --branches 50",
         "build": "babel app -d dist && npm run build:symlink",
         "postinstall": "npm run build"
     },
